@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <header class="header">
+      <h1 class="title">Blog</h1>
+      <div class="header-nav">
+        <ul>
+        <li><a class="header-list" href="#">Sign in</a></li>
+        
+        <li><a class="header-list" href="#">Sign out</a></li>
+        <li><a class="header-list" href="/blogs/new">New</a></li>
+       
+        </ul>
+      </div>
+    </header>
+    
     <%= yield %>
   </body>
+  <footer>
+    <div class="footer">
+      <p class="copywrite">Copywrite miniblog 2020</p>
+    </div>
+  </footer>
 </html>

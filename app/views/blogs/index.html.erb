@@ -1,1 +1,10 @@
-hello world
+<div class="main">
+  <% @blogs.each do |blog| %>
+    <div class="blog-title">
+      <%= blog.title %>
+    </div>
+    <div class="blog-text">
+      <%= simple_format(blog.text) %>
+    </div>
+    <% end %>
+</div>

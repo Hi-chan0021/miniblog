@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :move_to_index, except: :index
   
   def index
-    @blogs = Blog.where(user_id: current_user.id).order("created_at DESC").page(params[:page]).per(5)
+    @blogs = Blog.order("created_at DESC").page(params[:page]).per(5)
   end
   
   def new
@@ -11,6 +11,28 @@ class BlogsController < ApplicationController
   
   def create
     Blog.create(title: blog_params[:title], text: blog_params[:text], user_id: current_user.id)
+  end
+  
+  def show
+    @blog = Blog.find(params[:id])
+  end
+  
+  def destroy
+    blog = Blog.find(params[:id])
+    if blog.user_id == current_user.id
+      blog.destroy
+    end
+  end
+  
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+  
+  def update
+    blog = Blog.find(params[:id])
+    if blog.user_id == current_user.id
+      blog.update(blog_params)
+    end
   end
   
   private

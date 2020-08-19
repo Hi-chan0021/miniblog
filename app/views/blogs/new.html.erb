@@ -1,7 +1,7 @@
 <div class="main">
   <%= form_tag('/blogs', method: :post) do %>
   <h2>投稿する</h2>
-  <input type="text" name="title" placeholder="タイトル">
+  <input type="text" name="title" placeholder="タイトル" autofocus="true">
   <textarea name="text" placeholder="内容" rows="20" cols="50"></textarea>
   <input type="submit" value="投稿する">
   <% end %>

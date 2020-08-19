@@ -3,14 +3,14 @@ class BlogsController < ApplicationController
   before_action :move_to_index, except: :index
   
   def index
-    @blogs = Blog.all
+    @blogs = Blog.where(user_id: current_user.id).order("created_at DESC").page(params[:page]).per(5)
   end
   
   def new
   end
   
   def create
-    Blog.create(blog_params)
+    Blog.create(title: blog_params[:title], text: blog_params[:text], user_id: current_user.id)
   end
   
   private

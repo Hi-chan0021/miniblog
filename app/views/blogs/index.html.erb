@@ -1,4 +1,5 @@
 <div class="main">
+  <h2><%= current_user.nickname %>さんのブログ</h2>
   <% @blogs.each do |blog| %>
     <div class="blog-title">
       <%= blog.title %>
@@ -7,4 +8,7 @@
       <%= simple_format(blog.text) %>
     </div>
     <% end %>
+    <div class="paginate">
+    <%= paginate(@blogs) %>
+    </div>
 </div>
